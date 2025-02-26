@@ -29,9 +29,18 @@
             <h2>Question 1</h2>
             <p>What is the capital of France?</p>
             <div class="buttons">
-                <label><input type="radio" name="q1" value="paris"> Paris</label>
-                <label><input type="radio" name="q1" value="london"> London</label>
-                <label><input type="radio" name="q1" value="berlin"> Berlin</label>
+                <label>
+                    <input type="radio" name="q1" value="paris"> Paris 
+                    <span id="count-q1-paris">0</span>
+                </label>
+                <label>
+                    <input type="radio" name="q1" value="london"> London 
+                    <span id="count-q1-london">0</span>
+                </label>
+                <label>
+                    <input type="radio" name="q1" value="berlin"> Berlin 
+                    <span id="count-q1-berlin">0</span>
+                </label>
             </div>
         </div>
 
@@ -39,9 +48,18 @@
             <h2>Question 2</h2>
             <p>Which planet is known as the Red Planet?</p>
             <div class="buttons">
-                <label><input type="radio" name="q2" value="venus"> Venus</label>
-                <label><input type="radio" name="q2" value="mars"> Mars</label>
-                <label><input type="radio" name="q2" value="jupiter"> Jupiter</label>
+                <label>
+                    <input type="radio" name="q2" value="venus"> Venus 
+                    <span id="count-q2-venus">0</span>
+                </label>
+                <label>
+                    <input type="radio" name="q2" value="mars"> Mars 
+                    <span id="count-q2-mars">0</span>
+                </label>
+                <label>
+                    <input type="radio" name="q2" value="jupiter"> Jupiter 
+                    <span id="count-q2-jupiter">0</span>
+                </label>
             </div>
         </div>
 
@@ -49,14 +67,52 @@
             <h2>Question 3</h2>
             <p>What is the largest mammal in the world?</p>
             <div class="buttons">
-                <label><input type="radio" name="q3" value="elephant"> Elephant</label>
-                <label><input type="radio" name="q3" value="blue-whale"> Blue Whale</label>
-                <label><input type="radio" name="q3" value="giraffe"> Giraffe</label>
+                <label>
+                    <input type="radio" name="q3" value="elephant"> Elephant 
+                    <span id="count-q3-elephant">0</span>
+                </label>
+                <label>
+                    <input type="radio" name="q3" value="blue-whale"> Blue Whale 
+                    <span id="count-q3-blue-whale">0</span>
+                </label>
+                <label>
+                    <input type="radio" name="q3" value="giraffe"> Giraffe 
+                    <span id="count-q3-giraffe">0</span>
+                </label>
             </div>
         </div>
 
         <!-- Add a list to save the information -->
         <ul id="info-list"></ul>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const counters = {}; // Objeto para almacenar el conteo de respuestas
+
+            // Capturar todos los inputs de tipo radio
+            const radioButtons = document.querySelectorAll("input[type='radio']");
+
+            radioButtons.forEach(radio => {
+                radio.addEventListener("change", function () {
+                    const questionName = this.name; // Nombre de la pregunta (q1, q2, q3)
+                    const answerValue = this.value; // Valor de la respuesta seleccionada
+
+                    // Crear clave única para la respuesta
+                    const key = `${questionName}-${answerValue}`;
+
+                    // Inicializar el contador si no existe
+                    if (!counters[key]) {
+                        counters[key] = 0;
+                    }
+
+                    // Incrementar el contador
+                    counters[key]++;
+
+                    // Actualizar el contador en el HTML
+                    document.getElementById(`count-${key}`).textContent = counters[key];
+                });
+            });
+        });
+    </script>
 </body>
 </html>
