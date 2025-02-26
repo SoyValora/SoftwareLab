@@ -2,8 +2,45 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
+    background-color: #ffffff;
+    color: #333333;
+    transition: background-color 0.3s ease, color 0.3s ease;
     display: flex;
+}
+body.dark-theme {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-theme .container {
+    background-color: #1e1e1e; /* Fondo oscuro para el contenedor */
+    color: #e0e0e0; /* Texto claro */
+}
+
+/* Botón de Cambio de Tema */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+#theme-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+#theme-btn:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+body.dark-theme #theme-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .side-menu {
@@ -126,6 +163,63 @@ button {
     background-color: #4CAF50;
 }
 
+<<<<<<< HEAD
+button:hover {
+    background-color: #45a049;
+}
+
+/* Error page styles */
+.error-container {
+    text-align: center;
+    padding: 50px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    background-image: url('images/error.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-code {
+    font-size: 140px;
+    font-weight: bold;
+    color: white;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.error-message {
+    font-size: 24px;
+    color: white;
+    margin: 20px 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.error-description {
+    color: white;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.back-home {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #2ea44f;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.back-home:hover {
+    background-color: #2c974b;
+=======
 footer {
     background-color: #003366; /* Updated color */
     padding: 20px;
@@ -162,4 +256,5 @@ footer {
 
 .spacer {
     height: 20px; /* Adjust the height as needed */
+>>>>>>> 1bc087b810e5a3b9471a7ed2f026cbbba9283b1d
 }
